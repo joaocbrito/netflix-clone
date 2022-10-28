@@ -15,6 +15,12 @@ const nextConfig = {
     MESSAGING_SENDER: process.env.MESSAGING_SENDER,
     APP_ID: process.env.APP_ID,
   },
+
+  images: {
+    domains: ["image.tmdb.org"],
+  },
+
+  // runtime: "experimental-edge",
 };
 
 module.exports = nextConfig;

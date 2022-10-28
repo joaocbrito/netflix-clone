@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/legacy/image";
 import { useEffect, useState } from "react";
 import requests from "../Requests";
 import { Movie } from "../types/itens";
@@ -26,15 +27,28 @@ export function Main() {
     return str;
   };
 
+  console.log(movie);
+
+  // if (!movie) return <h1>loading..</h1>;
+
   return (
     <div className="w-full h-[550px] text-white">
       <div className="w-full h-full">
         <div className="absolute w-full h-[550px] bg-gradient-to-r from-black"></div>
-        <img
+        <div className="relative bg-red-300">
+          <Image
+            src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+            alt={movie?.title ?? ""}
+            width="1920"
+            height="1020"
+          />
+        </div>
+
+        {/* <img
           className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
-        />
+        /> */}
 
         <div className="absolute w-full top-[20%] p-4 md:p-8">
           <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
